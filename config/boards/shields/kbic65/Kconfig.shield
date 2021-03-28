@@ -1,5 +1,5 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-config SHIELD_NIBBLE
-	def_bool $(shields_list_contains,nibble)
+config SHIELD_KBIC65
+	def_bool $(shields_list_contains,kbic65)
