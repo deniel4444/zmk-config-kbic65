@@ -3,7 +3,7 @@ on: [push, pull_request, workflow_dispatch]
 name: Build
 
 jobs:
-  build:
+  build_nicenano_v1:
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:2.5
@@ -48,7 +48,7 @@ jobs:
           name: firmware
           path: kbic65_nice_nano.uf2
 
-  build:
+  build_nicenano_v2:
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:2.5
