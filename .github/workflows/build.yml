@@ -6,7 +6,7 @@ jobs:
   build_nicenano_v1:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.5
+      image: zmkfirmware/zmk-build-arm:stable
     name: Build nice_nano_v1
     steps:
       - name: Checkout
@@ -51,7 +51,7 @@ jobs:
   build_nicenano_v2:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.5
+      image: zmkfirmware/zmk-build-arm:stable
     name: Build nice_nano_v2
     steps:
       - name: Checkout
