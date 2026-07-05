@@ -1,5 +1,7 @@
 on: [push, pull_request, workflow_dispatch]
+
 name: Build
+
 jobs:
   build_nicenano_v1:
     runs-on: ubuntu-latest
@@ -32,7 +34,7 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (KBIC65)
-        run: west build -s zmk/app -b nice_nano@1.0.0 -- -DSHIELD=kbic65 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build -s zmk/app -b nice_nano -- -DSHIELD=kbic65 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: KBIC65 Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
@@ -42,6 +44,7 @@ jobs:
         with:
           name: firmware
           path: kbic65_nice_nano.uf2
+
   build_nicenano_v2:
     runs-on: ubuntu-latest
     container:
@@ -73,7 +76,7 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (KBIC65)
-        run: west build -s zmk/app -b nice_nano@2.0.0 -- -DSHIELD=kbic65 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=kbic65 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: KBIC65 Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
@@ -83,3 +86,4 @@ jobs:
         with:
           name: firmware
           path: kbic65_nice_nano_v2.uf2
+
